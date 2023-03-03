@@ -3,7 +3,7 @@ name: "(CD) (DEV)"
 on:
   push:
     branches: ["dev"]
-    # paths: ["**.ts", "**.tsx", "**.json"]
+    paths: ["**.ts", "**.tsx", "**.json"]
 
 jobs:
   Running-On-Ubuntu:
