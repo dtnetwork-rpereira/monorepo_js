@@ -1,5 +1,5 @@
 {
-  "name": "@onlytests/jest",
+  "name": "@onlytests/cypress",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
