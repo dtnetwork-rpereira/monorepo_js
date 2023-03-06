@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Should have tests\"",
+    "test": "yarn test:jest && yarn test:ci",
+    "test:e2e": "cypress run --config-file=cypress.config.ts --headless",
+    "test:jest": "echo \"Should have tests\"",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
