@@ -61,7 +61,6 @@
     ],
     "coverageDirectory": "../coverage",
     "projects": [
-      "./test/e2e.jest.config.ts",
       "./src/jest.config.ts"
     ]
   }
