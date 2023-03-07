@@ -6,7 +6,7 @@ on:
     paths: ["**.ts", "**.tsx", "**.json"]
 
 jobs:
-  Running-On-Ubuntu:
+  deploying:
     runs-on: ubuntu-latest
     environment: Development
     steps:
@@ -49,4 +49,4 @@ jobs:
           script: |
             tar -C onlytests -xf onlytests.tarzan
             cd onlytests
-            pm2 startOrReload ecosystem.config.js
+            yarn start

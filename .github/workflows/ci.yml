@@ -3,17 +3,38 @@ name: "(CI) Main Workflow"
 on:
   pull_request:
 
+env:
+  NODE_VERSION: 18
+  NODE_CACHE: "yarn"
+
 jobs:
-  Running-On-Ubuntu:
+  verification:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
 
+      - name: NodeJS Config
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ env.NODE_CACHE }}
+
       - name: Installing dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Running Lint
         run: yarn lint
 
       - name: Running Tests
         run: yarn test
+
+  E2E:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3.3.0
+
+      - name: NodeJS Config
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: ${{ env.NODE_CACHE }}
