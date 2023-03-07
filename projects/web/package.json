@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "yarn test:jest && yarn test:ci",
     "test:e2e": "start-server-and-test dev http://localhost:3000 \"cypress run --config-file=cypress.config.ts\"",
-    "test:jest": "echo \"Should have tests\"",
+    "test": "echo \"Should have tests\"",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
