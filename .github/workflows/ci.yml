@@ -8,7 +8,7 @@ env:
   NODE_CACHE: "yarn"
 
 jobs:
-  File_Verification:
+  LintingAndTesting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
@@ -42,4 +42,6 @@ jobs:
       - name: Run Cypress
         uses: cypress-io/github-action@v5.1.0
         with:
+          build: yarn web build
+          start: yarn web start
           browser: edge
