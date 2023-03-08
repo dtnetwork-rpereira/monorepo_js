@@ -39,7 +39,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: ${{ env.NODE_CACHE }}
-          run: npm install pm2@latest -g
 
       - name: Caching build
         uses: actions/cache@v3.2.6
@@ -48,6 +47,9 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Installing PM2
+        run: npm install pm2@latest -g
 
       - name: Installing dependencies
         run: yarn install --frozen-lockfile
