@@ -51,10 +51,13 @@ jobs:
       - name: Installing dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Installing PM2
+        run: npm i pm2 -g
+
       - name: Run Cypress
         uses: cypress-io/github-action@v5.1.0
         with:
           config-file: projects/web/cypress.config.ts
           build: yarn build
-          start: PORT=3001 yarn core:start, yarn web:start
+          start: pm2 start
           browser: edge
