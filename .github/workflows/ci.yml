@@ -41,9 +41,6 @@ jobs:
           cache: ${{ env.NODE_CACHE }}
           run: npm install pm2@latest -g
 
-      - name: Installing dependencies
-        run: yarn install --prod
-
       - name: Caching build
         uses: actions/cache@v3.2.6
         with:
@@ -56,6 +53,7 @@ jobs:
         uses: cypress-io/github-action@v5.1.0
         with:
           config-file: projects/web/cypress.config.ts
+          install-command: yarn install --prod
           build: yarn build
           start: yarn start
           browser: edge
