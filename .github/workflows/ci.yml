@@ -27,7 +27,7 @@ jobs:
         run: yarn lint
 
       - name: Running Tests
-        run: yarn test
+        run: yarn test --colors
 
   E2E:
     runs-on: windows-latest
@@ -39,12 +39,21 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: ${{ env.NODE_CACHE }}
+          run: npm install pm2@latest -g
+
+      - name: Caching build
+        uses: actions/cache@v3.2.6
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run Cypress
         uses: cypress-io/github-action@v5.1.0
         with:
           config-file: projects/web/cypress.config.ts
-          install: yarn install --frozen-lockfile
+          install: yarn install --prod
           build: yarn build
           start: yarn start
           browser: edge
