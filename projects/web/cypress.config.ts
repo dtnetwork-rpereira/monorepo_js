@@ -6,6 +6,6 @@ export default defineConfig({
     screenshotOnRunFailure: false,
     video: false,
     supportFile: false,
-    specPattern: './test/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: __dirname + '/test/e2e/**/*.cy.{js,jsx,ts,tsx}',
   },
 });
