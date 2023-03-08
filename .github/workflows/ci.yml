@@ -49,6 +49,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+
       - name: Run Cypress
         uses: cypress-io/github-action@v5.1.0
         with:
