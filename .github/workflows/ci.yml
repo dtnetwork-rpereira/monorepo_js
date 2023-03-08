@@ -43,6 +43,7 @@ jobs:
         uses: cypress-io/github-action@v5.1.0
         with:
           config-file: projects/web/cypress.config.ts
+          install: yarn install --prod
           build: yarn build
           start: yarn start
           browser: edge
