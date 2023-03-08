@@ -41,6 +41,9 @@ jobs:
           cache: ${{ env.NODE_CACHE }}
           run: npm install pm2@latest -g
 
+      - name: Installing dependencies
+        run: yarn install --prod
+
       - name: Caching build
         uses: actions/cache@v3.2.6
         with:
