@@ -1,11 +1,10 @@
+import generalConfig from '@onlytests/jest/index';
+
 const config = {
-  moduleFileExtensions: ['js', 'json', 'ts'],
+  ...generalConfig,
   rootDir: '.',
   testEnvironment: 'node',
   testRegex: '.*\\.spec\\.ts$',
-  transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
-  },
 };
 
 export default config;

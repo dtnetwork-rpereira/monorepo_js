@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 \"cypress run --config-file=cypress.config.ts\"",
     "test": "echo \"Should have tests\"",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
@@ -31,7 +32,9 @@
     "@onlytests/tsconfig": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "cypress": "^12.7.0",
     "jest": "^29.4.2",
-    "jest-environment-jsdom": "^29.4.2"
+    "jest-environment-jsdom": "^29.4.2",
+    "start-server-and-test": "^2.0.0"
   }
 }

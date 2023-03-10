@@ -7,9 +7,6 @@ module.exports = {
     {
       name: "core",
       script: "yarn core:start",
-      env: {
-        PORT: 3001,
-      },
     },
   ],
 };

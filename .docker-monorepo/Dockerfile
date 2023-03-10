@@ -1,11 +1,13 @@
-FROM node:alpine
+FROM node:slim
 
 WORKDIR /home/app
 
-RUN apk update
+RUN apt update
 # RUN apt --fix-broken install -y
-RUN apk add git sudo curl procps wget
+RUN apt install git sudo curl procps wget -y
 RUN echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+RUN apt install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
 
 RUN npm install pm2 -g
 RUN npm install @nestjs/cli -g

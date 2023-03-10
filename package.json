@@ -27,6 +27,8 @@
     "web:build": "yarn web build",
     "web:lint": "yarn web lint",
     "web:test": "yarn web test",
+    "web:test:e2e": "yarn web test:e2e",
+    "web:test:jest": "yarn web test:jest",
     "web:dev": "yarn web dev",
     "web:start": "yarn web start"
   },
