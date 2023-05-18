@@ -18,18 +18,8 @@ jobs:
       - name: Building
         run: yarn build
 
-      - name: Tar action
-        uses: a7ul/tar-action@v1.1.2
-        id: compress
-        with:
-          command: c
-          files: |
-            node_modules
-            ecosystem.config.js
-            package.json
-            projects
-            scripts
-          outPath: onlytests.tarzan
+      - name: Tarballing
+        run: tar -cf onlytests.tarzan node_modules ecosystem.config.js package.json projects scripts
 
       - name: SCP Command to Transfer Files
         uses: appleboy/scp-action@v0.1.3
